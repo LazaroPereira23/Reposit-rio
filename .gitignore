@@ -1,33 +1,390 @@
-# Gradle files
-.gradle/
-build/
 
-# Local configuration file (sdk path, etc)
-local.properties
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quartas de RPG CPMI</title>
+  <style>
+    * {box-sizing: border-box;}
+body {
+  margin: 0;
+  font-family: Times, serif;
+  background-image: url('https://i.ibb.co/vQMFGdk/1-20241219-130400-0000.png');
+  background-size: 100%;
+  background-position: center;
+  background-attachment: center;
+}
 
-# Log/OS Files
-*.log
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 65px;
+  background-image: linear-gradient(to right, #e68a00, #ffb84d);
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 15px 15px rgba(0, 0, 0, 0.5);
+}
 
-# Android Studio generated files and folders
-captures/
-.externalNativeBuild/
-.cxx/
-*.apk
-output-metadata.json
+.logo1 {
+  height: 60px;
+}
 
-# IntelliJ
-*.iml
-.idea/
-misc.xml
-deploymentTargetDropDown.xml
-render.experimental.xml
+.botao_do_menu{
+    position: absolute;
+    left: 1px;
+}
 
-# Keystore files
-*.jks
-*.keystore
+.botao_do_menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 13px;
+  display: flex;
+  align-items: center;
+}
 
-# Google Services (e.g. APIs or Firebase)
-google-services.json
+.botao_do_menu li {
+  left: 200px;
+  border: 2px solid black;
+  border-radius: 40%;
+  padding: 8px;
+  cursor: pointer;
+  background-color: saddlebrown;
+  transition: background 0.3s;
+}
 
-# Android Profiling
-*.hprof
+.botao_do_menu li:hover {
+  background-color: #fff2dc;
+}
+
+.menu {
+  display: none;
+  position: fixed;
+  top: 65px; /* logo abaixo do header */
+  left: 0;
+  background-color: #fff2dc;
+  width: 250px;
+  box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.3);
+  z-index: 20;
+  border-radius: 0 0 20px 0;
+  padding: 15px;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  margin-bottom: 12px;
+  text-decoration: none;
+  color: saddlebrown;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.menu li:hover {
+  color: orange;
+}
+
+.hamburger {
+  height: 15px;
+}
+
+main {
+  margin-top: 0px;
+  position: relative;
+  width: 100%;
+  height: 420px;
+}
+
+.banner_quadrado,
+.banner_arredondado {
+  position: absolute;
+  width: 100%;
+  top: 0;
+}
+
+.banner_quadrado {
+  height: 300px;
+}
+
+.banner_arredondado {
+  height: 400px;
+  border-radius: 60px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.7);
+}
+
+.logo {
+  position: absolute;
+  height: 180px;
+  top: 78px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.titulo_principal {
+  position: absolute;
+  font-size: 44px;
+  color: #fff;
+  text-align: center;
+  top: 240px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-shadow: 4px 4px 4px black;
+}
+
+.titulo_secundario {
+  position: absolute;
+  font-size: 28px;
+  color: saddlebrown;
+  text-align: center;
+  top: 405px;
+  padding-bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-shadow: 0 0 0 black;
+}
+
+.curiosidades {
+  display: flex;
+  flex-direction: column;
+}
+
+.curiosidade {
+  position: relative;
+  top: 120px;
+  width: 62%;
+  max-width: 800px;
+}
+
+.curiosidade.esquerda {
+  align-self: flex-start;
+  margin-left: 0;
+}
+
+.curiosidade.direita {
+  align-self: flex-end;
+  margin-right: 0;
+}
+
+.titulo {
+  position: absolute;
+  font-size: 27px;
+  z-index: 1;
+  color: #fff;
+  top: 5px;
+  left: 40px;
+}
+
+.resumo {
+  position: absolute;
+  top: 47px;
+  left: 40px;
+  font-size: 17px;
+  line-height: 1.4;
+  z-index: 1;
+  color: #fff;
+  max-width: 90%;
+}
+
+.curiosidade.direita .titulo,
+.curiosidade.direita .resumo {
+  right: 40px;
+  left: auto;
+  text-align: right;
+}
+
+.curiosidade_background {
+  width: 100%;
+  border-radius: 15px;
+  opacity: 0.85;
+  filter: drop-shadow(0 7px 7px rgba(0, 0, 0, 0.9));
+}
+.forms {
+  position: relative;
+  top: 120px;
+  width: 60%;
+  margin: 60px auto;
+  text-align: center;
+  border-radius: 20px;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.7);
+}
+
+.forms_minitexto {
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.forms_link a {
+  text-decoration: none;
+  color: #b97100;
+  font-weight: bold;
+  background-color: #ffe6c1;
+  padding: 10px 20px;
+  border-radius: 10px;
+  transition: background 0.3s;
+}
+
+.forms_link a:hover {
+  background-color: #ffd08a;
+}
+
+@media screen and (max-width: 780px) {
+  .logo {
+    height: 140px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .titulo_principal {
+    font-size: 27px;
+    top: 200px;
+  }
+
+  .titulo_secundario {
+    font-size: 16.5px;
+    top: 303px;
+    color: #ffd9b3;
+    padding-bottom: 0px;
+    text-shadow: 4px 4px 4px black;
+  }
+
+.curiosidade {
+  top: 0;
+}
+
+  .titulo {
+    font-size: 13px;
+    top: 5px;
+    left: 20px;
+  }
+
+  .resumo {
+    font-size: 8px;
+    top: 27px;
+    left: 20px;
+  }
+
+  .curiosidade.direita .titulo,
+  .curiosidade.direita .resumo {
+    right: 20px;
+  }
+
+  .forms {
+    position: static;
+    width: 90%;
+    padding: 15px;
+    top: 0;
+  }
+}
+
+  </style>
+</head>
+ <body>
+  <header>
+    <nav class="botao_do_menu">
+      <ul><li><img class="hamburger" onclick="abrir_menu();" src="https://i.ibb.co/p3pkY5x/Background-Eraser-20250110-121147578.png" alt=""></li></ul>
+    </nav>
+    <img class="logo1" src="https://i.ibb.co/rsprkJd/Background-Eraser-20250110-204022663.png" alt="">
+  </header>
+  
+  <div id="menu" class="menu">
+  <ul>
+    <li onclick="bloqueado();">RPGs Ativos</li>
+    <li onclick="bloqueado();">Sistemas</li>
+    <li onclick="bloqueado();">Sobre</li>
+  </ul>
+</div>
+  
+  <main>
+    <img class="banner_quadrado" src="https://i.ibb.co/9NJvzLv/1734196123346-cu1jah-2-0.jpg" alt="">
+    <img class="banner_arredondado" src="https://i.ibb.co/T8j1C5D/1734196123346-cu1jah-2-0-2.jpg" alt="">
+    <img class="logo" src="https://i.ibb.co/d0yRL2K/Background-Eraser-20250112-204000707.png" alt="">
+    <h1 class="titulo_principal">Bem-vindo(a),<br>Jogador(a)!</h1>
+    <h2 class="titulo_secundario">Conheça o Clube de RPG do Colégio Da Polícia Militar Tiradentes - Interior</h2>
+  </main>
+
+  <section class="curiosidades" id="curiosidade_1">
+    <article class="curiosidade esquerda">
+      <img class="curiosidade_background" src="https://i.ibb.co/tcPxksX/Background-Eraser-20241217-164843055.png" alt="">
+      <h1 class="titulo">Oque é um RPG?</h1>
+      <p class="resumo">Role-Playing Game (RPG) é um estilo de jogo<br>
+      popularizado nos anos 80, no qual os jogadores se<br>
+      imaginam na pele de personagens em histórias<br>
+      fictícias. O objetivo principal de um rpg é a<br>
+      colaboração e comunicação entre os<br>
+      jogadores para avançarem na história<br>
+      de acordo com o sistema<br>
+      predefinido.</p>
+    </article>
+
+    <article class="curiosidade direita">
+      <img class="curiosidade_background" src="https://i.ibb.co/Dg1cHrs/Background-Eraser-20250113-120544635.png" alt="">
+      <h1 class="titulo">Oque é um Sistema?</h1>
+      <p class="resumo">Um sistema de RPG é um conjunto de regras que devem<br>
+      ser seguidas para que os jogadores possam interagir<br>
+      com o mundo e o rpg se desenvolva de forma<br>
+      coerente, constante e concreta. Você pode usar<br>
+      um sistema predefinido ou criar o seu<br>
+      próprio. Só não pode esquecer de<br>
+      se divertir!</p>
+    </article>
+
+    <article class="curiosidade esquerda">
+      <img class="curiosidade_background" src="https://i.ibb.co/tcPxksX/Background-Eraser-20241217-164843055.png" alt="">
+      <h1 class="titulo">RPGs que você talvez conheça!</h1>
+      <p class="resumo">Quem nunca ao menos ouviu falar de Dangeons and<br>
+      Dragons (D&D)? Ou que tal Call of Cthulhu? Talvez<br>
+      um brasileiro, como o Tormenta ou então<br>
+      Ordem Paranormal, criado pelo youtuber<br>
+      Cellbit? Esses são alguns dos RPGs mais<br>
+      famosos do mundo, que serviram de<br>
+      inspiração para quase todos os<br>
+      RPGs até hoje.</p>
+    </article>
+
+    <article class="curiosidade direita">
+      <img class="curiosidade_background" src="https://i.ibb.co/Dg1cHrs/Background-Eraser-20250113-120544635.png" alt="">
+      <h1 class="titulo">Como é o Clube de RPG do CPMI?</h1>
+      <p class="resumo">O principal intuito do Clube de RPG é proporcionar aos<br>
+      participantes um momento de descontração nas<br>
+      tardes, além de aprimorar a criatividade e<br>
+      socialização, formando novos elos de amizade.<br>
+      Nos reunimos todas as tardes das quartas e<br>
+      sextas, com excessão das semanas antes<br>
+      e durante as provas bimestrais.</p>
+    </article>
+  </section>
+
+  <div class="forms">
+    <h1 class="forms_minitexto">Responda a um breve questionário para saber mais sobre o Clube e embarcar em uma aventura</h1>
+    <p class="forms_link"><a href="https://docs.google.com/forms/d/e/1FAIpQLSdCD-t3ksoJuhEmErkokZb9o0X3qQ4l6jrjT16T04SoTh_TTg/viewform?usp=dialog">Formulário</a></p>
+  </div>
+  
+<script>
+  let menuAberto = false;
+
+  function abrir_menu() {
+    const menu = document.getElementById('menu');
+    if (menuAberto) {
+      menu.style.display = 'none';
+    } else {
+      menu.style.display = 'block';
+    }
+    menuAberto = !menuAberto;
+  }
+  
+  function bloqueado() {
+      alert('Esta função está bloqueada no momento, inscreva-se no Clube para acessar');
+  }
+</script>
+    </body>
+</html>
