@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Quartas de RPG CPMI</title>
+        <style>
+        * {box-sizing: border-box;}
+        body {
+            margin: 0;
+            font-family: Times, Serif;
+            background-image: url('https://i.ibb.co/vQMFGdk/1-20241219-130400-0000.png');
+            background-size: 100%;
+            background-position: center;
+        }
+                
+            header {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 65px;
+                background-image: linear-gradient(to right, #e68a00, #ffb84d);
+                z-index: 10;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                box-shadow: 0 15px 15px rgba(0, 0, 0, 0.5);
+            }
+                
+                .logo_alada {
+                    height: 60px;
+                }
+                
+                .botao_do_menu {
+                    position: absolute;
+                    left: 0;
+                }
+                
+                .botao_do_menu ul {
+                    list-style: none;
+                    padding: 10px;
+                    display: flex;
+                    align-items: center;
+                }
+                
+                .botao_do_menu li {
+                    border: 2px solid black;
+                    border-radius: 35%;
+                    padding: 5px;
+                    padding-bottom: 2px;
+                    background-color: saddlebrown;
+                    transition: background 0.3s;
+                }
+                
+                .botao_do_menu li:hover {
+                    background-color: #fff2dc;
+                }
+                
+                .menu {
+                    display: none;
+                    position: fixed;
+                    top: 65px;
+                    left: 0;
+                    background-color: #fff2dc;
+                    width: 230px;
+                    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.9);
+                    z-index: 20;
+                    border-radius: 0 0 20px 0;
+                    padding: 15px;
+                }
+                
+                .menu ul {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                }
+                
+                .menu li {
+                    margin-bottom: 12px;
+                }
+                
+                .menu a {
+                    text-decoration: none;
+                    color: saddlebrown;
+                    font-weight: bold;
+                    transition: color 0.3s;
+                }
+                
+                .menu a:hover {
+                    color: orange;
+                }
+                
+                
+                .hamburger {
+                    height: 30px;
+                }
+                
+    /* ======== CABEÇALHO ======== */
+                
+            main {
+                position: relative;
+                margin-top: 0px;
+                width: 100%;
+                height: 420px;
+            }
+                
+                .banner {
+                    position: absolute;
+                    opacity: 0.9;
+                    width: 100%;
+                    height: auto;
+                }
+                
+                .top {
+                    top: 65px;
+                    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.9));
+                }
+                
+                .logo {
+                    position: absolute;
+                    height: 190px;
+                    top: 90px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+                
+                .titulo {
+                    top: 350px;
+                    font-size: 35px;
+                }
+                
+                .subtitulo {
+                    top: 385px;
+                    font-size: 30px;
+                }
+                
+                .titulo, .subtitulo {
+                    position: absolute;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    color: saddlebrown;
+                    white-space: nowrap;
+                }
+                
+    /* ======== RODAPÉ ======== */
+            
+            footer {
+                position: relative;
+            }
+                
+                .bottom {
+                    position: absolute;
+                    top: 120px;
+                    filter: drop-shadow(0 -5px 10px rgba(0, 0, 0, 0.9));
+                }
+                
+    /* ======== CONTEÚDO ======== */
+                
+                .mesas {
+                    display: flex;
+                    flex-direction: column;
+                }
+                
+                .mesa {
+                    position: relative;
+                    top: 90px;
+                    width: 62%;
+                    max-width: 800px;
+                }
+                
+                .mesa.esquerda {
+                    align-self: flex-start;
+                    margin-left: 0;
+                }
+                
+                .mesa.direita {
+                    align-self: flex-end;
+                    margin-right: 0;
+                }
+                
+                .titulo_do_rpg {
+                    position: absolute;
+                    font-size: 19px;
+                    z-index: 1;
+                    color: #fff;
+                    top: 20px;
+                    left: 200px;
+                }
+                
+                .resumo_do_rpg {
+                    position: absolute;
+                    top: 47px;
+                    left: 40px;
+                    font-size: 14px;
+                    line-height: 1.4;
+                    z-index: 1;
+                    color: #fff;
+                    max-width: 90%;
+                }
+                
+                .mesa.direita .titulo_do_rpg,
+                .mesa.direita .resumo_do_rpg {
+                    right: 40px;
+                    left: auto;
+                    text-align: right;
+                }
+                
+                .mesa_background {
+                    width: 530px;
+                    border-radius: 15px;
+                    opacity: 0.85;
+                    filter: drop-shadow(0 7px 7px rgba(0, 0, 0, 0.9));
+                }
+                
+                .formulario {
+                    position: relative;
+                    top: 100px;
+                    width: 60%;
+                    height: 110px;
+                    margin: 60px auto;
+                    text-align: center;
+                    border-radius: 20px;
+                    background-color: black;
+                    padding: 20px;
+                    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.7);
+                }
+                
+                .add {
+                    position: absolute;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 70px;
+                    height: 70px;
+                }
+                
+   /* ======== RESPONSIVIDADE ======== */
+                
+            @media screen and (max-width: 780px) {
+            /* ↓Ajustes para telas menores↓ */
+                
+    /* ======== CABEÇALHO ======== */
+                
+                .top {
+                    filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.9));
+                }
+                
+                .logo {
+                    height: 170px;
+                    top: 80px;
+                }
+                
+                .titulo {
+                    font-size: 31px;
+                    top: 300px;
+                }
+                
+                .subtitulo {
+                    font-size: 23px;
+                    top: 335px;
+                }
+                
+    /* ======== RODAPÉ ======== */
+                
+                .bottom {
+                    top: 70px;
+                    filter: drop-shadow(0 -5px 10px rgba(0, 0, 0, 0.9));
+                }
+                
+    /* ======== CONTEÚDO ======== */
+                
+                .mesa {
+                    top: 0;
+                }
+                
+                .mesa_background {
+                    width: 300px;
+                }
+                
+                .titulo_do_rpg {
+                    font-size: 13px;
+                    top: 7px;
+                    left: 100px;
+                }
+                
+                .resumo_do_rpg {
+                    font-size: 8px;
+                    top: 27px;
+                    left: 20px;
+                }
+                
+                .mesa.direita .titulo_do_rpg,
+                .mesa.direita .resumo_do_rpg {
+                    right: 20px;
+                }
+                
+                .formulario {
+                    top: 20px;
+                    height: 90px;
+                }
+                
+                .add {
+                    width: 50px;
+                    height: 50px;
+                }
+                
+        </style>
+    </head>
+    
+    <body>
+        
+    <!-- ======== CABEÇALHO COM LOGO E MENU HAMBÚRGUER ======== -->
+        
+        <header>
+            <nav class="botao_do_menu"><ul><li>
+                <img class="hamburger" onclick="abrir_menu();" src="https://cdn-icons-png.flaticon.com/512/3502/3502458.png" alt="Menu Hambúrguer">
+            </li></ul></nav>
+            <img class="logo_alada" src="https://i.ibb.co/rsprkJd/Background-Eraser-20250110-204022663.png" alt="Logo CPMI - Fundo alado">
+        </header>
+        
+        <div id="menu" class="menu"><ul>
+            <li><a href="">RPGs Futuros</a></li>
+            <li><a href="">Sistemas</a></li>
+            <li><a href="">Sobre</a></li>
+        </ul></div>
+        
+    <!-- ======== CABEÇALHO======== -->
+        
+        <main>
+            <picture>
+                <source media="(min-width:780px)" srcset="https://i.ibb.co/HppCmXGD/Banner-Top-Computador.png">
+                <img class="banner top" src="https://i.ibb.co/BHzK6BJ5/Banner-Top-Mobile.png" alt="Banner Cabeçalho">
+            </picture>
+            <img class="logo" src="https://i.ibb.co/d0yRL2K/Background-Eraser-20250112-204000707.png" alt="Logo CPMI">
+            <h1 class="titulo">
+                Observe as mesas
+            </h1>
+            <h2 class="subtitulo">
+                que estão ativas atualmente
+            </h2>
+        </main>
+        
+    <!-- ======== CONTEÚDO ======== -->
+        
+        <div class="mesas" id="div_mesa">
+            <div class="mesa esquerda">
+            <img class="mesa_background" src="https://i.ibb.co/tcPxksX/Background-Eraser-20241217-164843055.png" alt="">
+            <h1 class="titulo_do_rpg">O Livro de Nix</h1>
+            <p class="resumo_do_rpg">
+                Reza a lenda, que há muito tempo atrás, alguns órfãos<br>
+                com poderes sobrenaturais eram encarregados de<br>
+                proteger a mansão de ladrões. Até que certo dia,<br>
+                em um momento enquanto os órfãos<br>
+                passeavam, o orfanato foi invadido por<br>
+                velhos inimigos, os irmãos tem que<br>
+                recuperar um artefato valioso que foi<br>
+                roubado, o Livro de Nix.
+            </p>
+            </div>
+        </div>
+        <div class="formulario">
+            <img class="add" src="https://i.ibb.co/svdkDMWv/33-Sem-T-tulo-20250816214212.png" alt="">
+        </div>
+        
+    <!-- ======== RODAPÉ ======== -->
+        
+        <footer>
+            <picture>
+                <source media="(min-width:780px)" srcset="https://i.ibb.co/zhFh9hRP/Banner-Bottom-Computador.png">
+                <img class="banner bottom" src="https://i.ibb.co/7JfwVG7W/Banner-Bottom-Mobile.png" alt="Banner Rodapé">
+            </picture>
+        </footer>
+        
+    <!-- ======== SCRIPTS ======== -->
+        
+        <script>
+            let menuAberto = false; // Estado do menu
+            
+            function abrir_menu(){
+                const menu = document.getElementById('menu');
+                if (menuAberto){
+                    menu.style.display = 'none';
+                }else{
+                    menu.style.display = 'block';
+                }
+                menuAberto = !menuAberto;
+            }
+        </script>
+    </body>
+</html>
