@@ -358,7 +358,7 @@
             </p>
             </div>
         </div>
-        <div class="formulario">
+        <div class="formulario" onclick="salvarDados;">
             <img class="add" src="https://i.ibb.co/svdkDMWv/33-Sem-T-tulo-20250816214212.png" alt="">
         </div>
         
@@ -385,6 +385,44 @@
                 }
                 menuAberto = !menuAberto;
             }
+            async function salvarDados() {
+  try {
+    const docRef = await addDoc(collection(db, "clientes"), {
+      nome: "João Silva",
+      email: "joao@email.com",
+      data: new Date()
+    });
+    console.log("Documento escrito com ID: ", docRef.id);
+    alert("Dados salvos com sucesso!");
+  } catch (e) {
+    console.error("Erro ao adicionar documento: ", e);
+  }
+            }
+            
+            <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyB7__LT5QMDf4qAXv0c2--6_rnYeUUiHDg",
+    authDomain: "hq-de-lazaro-pereira.firebaseapp.com",
+    databaseURL: "https://hq-de-lazaro-pereira.firebaseio.com",
+    projectId: "hq-de-lazaro-pereira",
+    storageBucket: "hq-de-lazaro-pereira.firebasestorage.app",
+    messagingSenderId: "52224337823",
+    appId: "1:52224337823:web:55e741fcf6a7c228143faa",
+    measurementId: "G-ESXZ9J2PMZ"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
         </script>
     </body>
 </html>
