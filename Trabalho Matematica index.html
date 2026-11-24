@@ -327,10 +327,6 @@ exceto posteriormente para revisão final do código, toda a sessão <body> foi 
         if (a == 0){
             if(b == 0){
                 resposta1.innerText = (`Não existe uma equação, pois a implicação de a = 0 e b = 0 leva à resposta ${c} = 0, oque está matematicamente incorreto. Conjunto solução vazio, 𝑆 = ∅`);
-            }if (c == 0){
-                resposta1.innerText = (`Resultado: 0`);
-                passosDiv.innerHTML = `Passo a passo: Substituindo, temos 0x^2 + 0x + 0 = 0`;
-
             }else{
                 x = -1 * (c/b);
                 resposta1.innerText = (`Resultado: ${x}`);
@@ -348,12 +344,12 @@ exceto posteriormente para revisão final do código, toda a sessão <body> foi 
 // Math.abs devolve o valor modular do número
                 complexo = (Math.abs(delta)) ** 0.5;
                 divisor = 2 * a;
-                resposta1.innerText = (`Resultado simples: x = { (${-b} + ${complexo.toFixed(2)}i) / (${divisor}) e (${-b}-${complexo.toFixed(2)}i) / (${divisor}) }.
+                resposta1.innerText = (`Resultado simples: x = { (${(-b)/(divisor)} + ${(complexo.toFixed(2))/(divisor)}i) e (${(-b)/(divisor)} - ${(complexo.toFixed(2))/(divisor)}i) }.
                 Ou por extenço, evidenciando a parte real e imaginária: x = {${-b}/${divisor} + (${complexo.toFixed(2)}i) / ${divisor} e ${-b} / ${divisor} - ${complexo.toFixed(2)}i / ${divisor}}`);
                 passosDiv.innerHTML = `Como a ≠ 0, temos uma equação de 2° grau. Agora, temos que olhar para o Δ(delta), dado por Δ = b² - 4ac, substituindo, Δ = (${b})² - 4(${a})(${c}) = ${delta}. 
                 Como Δ < 0, essa equação vai gerar raízes complexas, com parte imaginária, por tanto separamos a raiz em duas raizes, uma real e outra imaginária, formando a parte imaginária do número: 
-                √${delta} = √${Math.abs(delta)} . √-1; √-1 = i (Unidade imaginária). Segundo as propriedades das operações complexas, devemos então simplificar os números reais sem mexer no número imaginário, que é representado por i: 
-                -${b} ± √${Math.abs(delta)}i = ${-b} ± √${complexo.toFixed(2)}i. Simplificando o divisor, temos a resposta x = (${-b} ± √${complexo.toFixed(2)}i) / (${divisor}`;
+                √${delta} = √${Math.abs(delta)} . √-1; √-1 = i (Unidade imaginária). Segundo as propriedades das operações complexas, devemos então simplificar os números reais sem mexer no número imaginário, que é representado por i. 
+                -${b} ± √${Math.abs(delta)}i = ${-b} ± √${complexo.toFixed(2)}i. Simplificando o divisor, temos a resposta x = (${(-b)/(divisor)} ± √${(complexo.toFixed(2))/(divisor)}i)`;
             }
         }
     }
