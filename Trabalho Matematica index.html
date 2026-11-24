@@ -326,11 +326,14 @@ exceto posteriormente para revisão final do código, toda a sessão <body> foi 
         
         if (a == 0){
             if(b == 0){
-                x = c;
-                resposta1.innerText = (`Resultado ${x}`);
+                resposta1.innerText = (`Não existe uma equação, pois a implicação de a = 0 e b = 0 leva à resposta ${c} = 0, oque está matematicamente incorreto. Conjunto solução vazio, 𝑆 = ∅`);
+            }if (c == 0){
+                resposta1.innerText = (`Resultado: 0`);
+                passosDiv.innerHTML = `Passo a passo: Substituindo, temos 0x^2 + 0x + 0 = 0`;
+
             }else{
                 x = -1 * (c/b);
-                resposta1.innerText = (`Resultado ${x}`);
+                resposta1.innerText = (`Resultado: ${x}`);
                 passosDiv.innerHTML = `Passo a passo: Como a = 0, a equação é do 1° grau. Fórmula aplicada com base nos coeficientes b e c. Assim, aplicamos -(c/b), substituindo, temos -(${b}/${c}) = ${x}`;
             }
         }else{
@@ -338,7 +341,7 @@ exceto posteriormente para revisão final do código, toda a sessão <body> foi 
                 x1 = (-b + (delta ** 0.5))/(2 * a);
                 x2 = (-b - (delta ** 0.5))/(2 * a);
 //.toFixed(2) devolve o valor com a parte decimal limitada a duas casas, já que a maioria das vezes ela tem dezenas de números após a vírgula
-                resposta1.innerText = (`Resultado ${x1.toFixed(2)} e ${x2.toFixed(2)}`);
+                resposta1.innerText = (`Resultado: ${x1.toFixed(2)} e ${x2.toFixed(2)}`);
                 passosDiv.innerHTML = `Passo a passo: Como a ≠ 0, temos uma equação de 2° grau. Agora, temos que olhar para o Δ(delta), dado por Δ = b² - 4ac, substituindo, Δ = (${b})² - 4(${a})(${c}) = ${delta}. 
                 Como Δ > 0, aplicamos Bhaskara normalmente, (-b ± √Δ) / (2a), substituindo, -((${b}) ± √${delta}) / 2 . ${a} => x = {${x1} e ${x2}`;
             }else{
